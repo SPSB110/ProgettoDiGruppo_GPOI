@@ -26,7 +26,7 @@
 
         </Grid>
         <Grid VerticalAlignment="Top" >
-            <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left" CanUserSortColumns="False"/>
         </Grid>
     </Grid>
 

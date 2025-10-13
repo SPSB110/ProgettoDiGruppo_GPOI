@@ -39,6 +39,7 @@ namespace ProgettoDiGruppo_GPOI
                 this.TopGrid.Height = this.Height * topGridHeight;
                 this.leftGrid.Height = this.Height * (1- topGridHeight);
                 this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
+                this.mainGrid.Margin = new Thickness(this.leftGrid.Width, this.TopGrid.Height, 0, 0);
 
                 this.btnHome.Height = this.TopGrid.Height * 0.7;
 
@@ -48,25 +49,26 @@ namespace ProgettoDiGruppo_GPOI
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            // Intestazioni
-            string[] intestazioniColonne = { "D1", "D2", "D3", "D4", "D5", "Totali" };
-            string[] intestazioniRighe = { "UP1", "UP2", "UP3", "Totali" };
+            if (!int.TryParse(rowTextBox.Text, out int nRighe) || nRighe <= 0)
+            {
+                MessageBox.Show("Numero di righe non valido!");
+                return;
+            }
 
-            int nCol = intestazioniColonne.Length;
-            int nRow = intestazioniRighe.Length;
+            if (!int.TryParse(colTextBox.Text, out int nColonne) || nColonne <= 0)
+            {
+                MessageBox.Show("Numero di colonne non valido!");
+                return;
+            }
 
-            // Dati di esempio
-            int[,] valori = {
-                { 10, 12, 80, 30, 50 },
-                { 15, 30, 40, 45, 60 },
-                { 20, 35, 30, 20, 50 }
-            };
+            CreaTabella(nRighe, nColonne);
+        }
 
-            // Crea colonne
+        private void CreaTabella(int nRighe, int nColonne)
+        {
             mainGrid.Columns.Clear();
-            mainGrid.AutoGenerateColumns = false;
 
-            // Prima colonna = intestazione riga
+            // Prima colonna = intestazioni righe
             mainGrid.Columns.Add(new DataGridTextColumn
             {
                 Header = "",
@@ -74,64 +76,55 @@ namespace ProgettoDiGruppo_GPOI
                 IsReadOnly = true
             });
 
-            // Colonne dati
-            for (int c = 0; c < nCol; c++)
+            // Crea intestazioni colonne dinamiche (D1, D2, …)
+            string[] intestazioniColonne = new string[nColonne+1];
+            for (int c = 0; c < nColonne; c++)
             {
-                bool isTotaleCol = (c == nCol - 1);
+                intestazioniColonne[c] = $"D{c + 1}";
                 mainGrid.Columns.Add(new DataGridTextColumn
                 {
                     Header = intestazioniColonne[c],
                     Binding = new Binding(intestazioniColonne[c]),
-                    IsReadOnly = isTotaleCol
+                    IsReadOnly = false
                 });
             }
+            intestazioniColonne[nColonne] = "Totali";
+            mainGrid.Columns.Add(new DataGridTextColumn
+            {
+                Header = intestazioniColonne[nColonne],
+                Binding = new Binding(intestazioniColonne[nColonne]),
+                IsReadOnly = false
+            });
 
-            // Crea righe
-            var righe = new List<ExpandoObject>();
-
-            for (int r = 0; r < nRow; r++)
+            // Crea righe dinamiche (UP1, UP2, …)
+            var listaRighe = new List<ExpandoObject>();
+            for (int r = 0; r < nRighe; r++)
             {
                 dynamic row = new ExpandoObject();
                 var dict = (IDictionary<string, object>)row;
-                dict["Riga"] = intestazioniRighe[r];
 
-                for (int c = 0; c < nCol; c++)
+                dict["Riga"] = $"UP{r + 1}";
+
+                foreach (var col in intestazioniColonne)
                 {
-                    // Ultima riga = Totali
-                    if (r == nRow - 1)
-                    {
-                        // Totale colonna
-                        int totCol = 0;
-                        for (int rr = 0; rr < nRow - 1; rr++)
-                        {
-                            totCol += valori[rr, c];
-                        }
-                        dict[intestazioniColonne[c]] = totCol;
-                    }
-                    else
-                    {
-                        // Ultima colonna = Totale riga
-                        if (c == nCol - 1)
-                        {
-                            int totRiga = 0;
-                            for (int cc = 0; cc < nCol - 1; cc++)
-                            {
-                                totRiga += valori[r, cc];
-                            }
-                            dict[intestazioniColonne[c]] = totRiga;
-                        }
-                        else
-                        {
-                            dict[intestazioniColonne[c]] = valori[r, c];
-                        }
-                    }
+                    dict[col] = ""; // celle inizialmente vuote
                 }
 
-                righe.Add(row);
+                listaRighe.Add(row);
+            }
+            dynamic row1 = new ExpandoObject();
+            var dict1 = (IDictionary<string, object>)row1;
+
+            dict1["Riga"] = "Totali";
+
+            foreach (var col in intestazioniColonne)
+            {
+                dict1[col] = ""; // celle inizialmente vuote
             }
 
-            mainGrid.ItemsSource = righe;
+            listaRighe.Add(row1);
 
+            mainGrid.ItemsSource = listaRighe;
         }
 
         private void rowTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
