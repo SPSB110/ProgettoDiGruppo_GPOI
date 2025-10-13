@@ -1,0 +1,16 @@
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.exe.config
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.exe
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.pdb
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.AssemblyReference.cache
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\MainWindow.g.cs
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\App.g.cs
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI_MarkupCompile.cache
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI_MarkupCompile.lref
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\MainWindow.baml
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.g.resources
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.Properties.Resources.resources
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.GenerateResource.cache
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.CoreCompileInputs.cache
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.pdb
+C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoDiGruppo_GPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe.config
