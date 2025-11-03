@@ -20,13 +20,32 @@
                 <Grid Margin="280,0,0,0" VerticalAlignment="Center">
                     <TextBox x:Name="colTextBox" Width="150" Height="30"  HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="colTextBox_TextChanged" FontSize="20"/>
                 </Grid>
+                <Grid Margin="440,0,0,0" VerticalAlignment="Center">
+                    <Button x:Name="btnNordOvest" Content="Nord-Ovest" Width="120" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnNordOvest_Click" IsEnabled="False"/>
+                </Grid>
+                <Grid Margin="570,0,0,0" VerticalAlignment="Center">
+                    <Button x:Name="btnMinimiCosti" Content="Minimi Costi" Width="120" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnMinimiCosti_Click" IsEnabled="False"/>
+                </Grid>
+                <Grid Margin="700,0,0,0" VerticalAlignment="Center">
+                    <Button x:Name="btnReset" Content="Reset" Width="80" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnReset_Click" IsEnabled="False"/>
+                </Grid>
+                <Grid Margin="790,0,0,0" VerticalAlignment="Center">
+                    <Button x:Name="btnAutofill" Content="Riempimento Auto" Width="130" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAutofill_Click" IsEnabled="False" Background="#FF4CAF50" Foreground="White"/>
+                </Grid>
             </Grid>
         </Grid>
         <Grid x:Name="leftGrid" Background="#FF303030" HorizontalAlignment="Left" Width="35" Margin="0,60,0,0">
-
         </Grid>
         <Grid VerticalAlignment="Top" >
             <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left" CanUserSortColumns="False"/>
+
+            <!-- Easter Egg Image -->
+            <Image x:Name="easterEggImage" 
+                   Visibility="Collapsed" 
+                   Stretch="Uniform"
+                   Margin="35,60,0,0"
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch"/>
         </Grid>
     </Grid>
 
