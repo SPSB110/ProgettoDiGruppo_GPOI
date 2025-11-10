@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Media.Imaging;
+using System.Text;
 
 namespace ProgettoDiGruppo_GPOI
 {
@@ -19,12 +20,12 @@ namespace ProgettoDiGruppo_GPOI
         public static List<float> Totali = new List<float>();
         public static int nCol = 4;
         public static int nRow = 3;
-        private List<ExpandoObject> righe;
         private int[,] costiTrasporto;
         private int[] offerte;
         private int[] domande;
         private int nRigheCorrente;
         private int nColonneCorrente;
+        private StringBuilder logCalcoli;
 
         public MainWindow()
         {
@@ -46,10 +47,23 @@ namespace ProgettoDiGruppo_GPOI
                 this.leftGrid.Height = this.Height * (1 - topGridHeight);
                 this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
                 this.mainGrid.Margin = new Thickness(this.leftGrid.Width, this.TopGrid.Height, 0, 0);
+                this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
 
                 this.btnHome.Height = this.TopGrid.Height * 0.7;
             };
             this.SizeChanged += MainWindow_SizeChanged;
+        }
+
+        private void AggiungiLog(string messaggio)
+        {
+            logCalcoli.AppendLine(messaggio);
+            txtCalcoli.Text = logCalcoli.ToString();
+        }
+
+        private void PulisciLog()
+        {
+            logCalcoli = new StringBuilder();
+            txtCalcoli.Text = "";
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -100,6 +114,9 @@ namespace ProgettoDiGruppo_GPOI
             // Nascondi easter egg e mostra DataGrid
             easterEggImage.Visibility = Visibility.Collapsed;
             mainGrid.Visibility = Visibility.Visible;
+
+            // Pulisci i log
+            PulisciLog();
 
             // Salva le dimensioni
             nRigheCorrente = nRighe;
@@ -356,25 +373,60 @@ namespace ProgettoDiGruppo_GPOI
 
         private void ApplicaMetodoNordOvest()
         {
+            PulisciLog();
+            AggiungiLog("═══════════════════════════════════════════");
+            AggiungiLog("   METODO NORD-OVEST");
+            AggiungiLog("═══════════════════════════════════════════\n");
+
+            // Mostra stato iniziale
+            AggiungiLog(" STATO INIZIALE:");
+            AggiungiLog("-------------------");
+            for (int x = 0; x < nRigheCorrente; x++)
+                AggiungiLog($"  Offerta UP{x + 1}: {offerte[x]}");
+            AggiungiLog("");
+            for (int z = 0; z < nColonneCorrente; z++)
+                AggiungiLog($"  Domanda D{z + 1}: {domande[z]}");
+            AggiungiLog("\n");
+
             int[,] allocazioni = new int[nRigheCorrente, nColonneCorrente];
             int[] offerteRimanenti = (int[])offerte.Clone();
             int[] demandeRimanenti = (int[])domande.Clone();
 
             int i = 0, j = 0;
+            int passo = 1;
 
             // Algoritmo Nord-Ovest
+            AggiungiLog(" ESECUZIONE ALGORITMO:");
+            AggiungiLog("========================\n");
+
             while (i < nRigheCorrente && j < nColonneCorrente)
             {
                 int quantita = Math.Min(offerteRimanenti[i], demandeRimanenti[j]);
                 allocazioni[i, j] = quantita;
 
+                AggiungiLog($"Passo {passo}:");
+                AggiungiLog($"  Cella [UP{i + 1}, D{j + 1}]");
+                AggiungiLog($"  Offerta rimanente: {offerteRimanenti[i]}");
+                AggiungiLog($"  Domanda rimanente: {demandeRimanenti[j]}");
+                AggiungiLog($"  Quantità allocata: {quantita}");
+                AggiungiLog($"  Costo unitario: {costiTrasporto[i, j]}");
+                AggiungiLog($"  Costo parziale: {costiTrasporto[i, j]} × {quantita} = {costiTrasporto[i, j] * quantita}");
+
                 offerteRimanenti[i] -= quantita;
                 demandeRimanenti[j] -= quantita;
 
                 if (offerteRimanenti[i] == 0)
+                {
+                    AggiungiLog($"  -> Offerta UP{i + 1} ESAURITA, avanzo alla riga successiva\n");
                     i++;
+                }
                 else
+                {
+                    AggiungiLog($"  -> Domanda D{j + 1} SODDISFATTA, avanzo alla colonna successiva\n");
                     j++;
+                }
+
+                passo++;
             }
 
             MostraRisultato(allocazioni, "Metodo Nord-Ovest");
@@ -382,12 +434,50 @@ namespace ProgettoDiGruppo_GPOI
 
         private void ApplicaMetodoMinimiCosti()
         {
+            PulisciLog();
+            AggiungiLog("═══════════════════════════════════════════");
+            AggiungiLog("   METODO MINIMI COSTI");
+            AggiungiLog("═══════════════════════════════════════════\n");
+
+            // Mostra stato iniziale
+            AggiungiLog(" STATO INIZIALE:");
+            AggiungiLog("-------------------");
+            for (int i = 0; i < nRigheCorrente; i++)
+                AggiungiLog($"  Offerta UP{i + 1}: {offerte[i]}");
+            AggiungiLog("");
+            for (int j = 0; j < nColonneCorrente; j++)
+                AggiungiLog($"  Domanda D{j + 1}: {domande[j]}");
+            AggiungiLog("\n");
+
+            AggiungiLog(" MATRICE DEI COSTI:");
+            AggiungiLog("---------------------");
+            StringBuilder matriceCosti = new StringBuilder("     ");
+            for (int j = 0; j < nColonneCorrente; j++)
+                matriceCosti.Append($"D{j + 1}".PadRight(6));
+            AggiungiLog(matriceCosti.ToString());
+
+            for (int i = 0; i < nRigheCorrente; i++)
+            {
+                StringBuilder riga = new StringBuilder($"UP{i + 1}".PadRight(5));
+                for (int j = 0; j < nColonneCorrente; j++)
+                {
+                    riga.Append(costiTrasporto[i, j].ToString().PadRight(6));
+                }
+                AggiungiLog(riga.ToString());
+            }
+            AggiungiLog("\n");
+
             int[,] allocazioni = new int[nRigheCorrente, nColonneCorrente];
             int[] offerteRimanenti = (int[])offerte.Clone();
             int[] demandeRimanenti = (int[])domande.Clone();
             bool[,] usato = new bool[nRigheCorrente, nColonneCorrente];
 
+            int passo = 1;
+
             // Algoritmo Minimi Costi
+            AggiungiLog(" ESECUZIONE ALGORITMO:");
+            AggiungiLog("========================\n");
+
             while (true)
             {
                 // Trova la cella con costo minimo non ancora utilizzata
@@ -416,12 +506,29 @@ namespace ProgettoDiGruppo_GPOI
                 int quantita = Math.Min(offerteRimanenti[minI], demandeRimanenti[minJ]);
                 allocazioni[minI, minJ] = quantita;
 
+                AggiungiLog($"Passo {passo}:");
+                AggiungiLog($"  Costo minimo trovato: {minCosto}");
+                AggiungiLog($"  Cella [UP{minI + 1}, D{minJ + 1}]");
+                AggiungiLog($"  Offerta rimanente UP{minI + 1}: {offerteRimanenti[minI]}");
+                AggiungiLog($"  Domanda rimanente D{minJ + 1}: {demandeRimanenti[minJ]}");
+                AggiungiLog($"  Quantità allocata: {quantita}");
+                AggiungiLog($"  Costo parziale: {minCosto} × {quantita} = {minCosto * quantita}");
+
                 offerteRimanenti[minI] -= quantita;
                 demandeRimanenti[minJ] -= quantita;
 
                 // Marca come usata se offerta o domanda è esaurita
                 if (offerteRimanenti[minI] == 0 || demandeRimanenti[minJ] == 0)
+                {
                     usato[minI, minJ] = true;
+                    if (offerteRimanenti[minI] == 0)
+                        AggiungiLog($"  -> Offerta UP{minI + 1} ESAURITA");
+                    if (demandeRimanenti[minJ] == 0)
+                        AggiungiLog($"  -> Domanda D{minJ + 1} SODDISFATTA");
+                }
+
+                AggiungiLog("");
+                passo++;
             }
 
             MostraRisultato(allocazioni, "Metodo Minimi Costi");
@@ -434,16 +541,33 @@ namespace ProgettoDiGruppo_GPOI
 
             int costoTotale = 0;
 
+            AggiungiLog("\n═══════════════════════════════════════════");
+            AggiungiLog("   RISULTATO FINALE");
+            AggiungiLog("═══════════════════════════════════════════\n");
+
+            AggiungiLog(" ALLOCAZIONI:");
+            AggiungiLog("--------------");
+
             // Aggiorna la tabella con le allocazioni
             for (int r = 0; r < nRigheCorrente; r++)
             {
                 var dict = (IDictionary<string, object>)items[r];
+                bool haAllocazioni = false;
+
                 for (int c = 0; c < nColonneCorrente; c++)
                 {
                     if (allocazioni[r, c] > 0)
                     {
                         dict[$"D{c + 1}"] = $"{costiTrasporto[r, c]} ({allocazioni[r, c]})";
-                        costoTotale += costiTrasporto[r, c] * allocazioni[r, c];
+                        int costoParzialeRiga = costiTrasporto[r, c] * allocazioni[r, c];
+                        costoTotale += costoParzialeRiga;
+
+                        if (!haAllocazioni)
+                        {
+                            AggiungiLog($"\n  UP{r + 1}:");
+                            haAllocazioni = true;
+                        }
+                        AggiungiLog($"    -> D{c + 1}: {allocazioni[r, c]} unità a costo {costiTrasporto[r, c]} = {costoParzialeRiga}");
                     }
                     else
                     {
@@ -451,6 +575,11 @@ namespace ProgettoDiGruppo_GPOI
                     }
                 }
             }
+
+            AggiungiLog("\n");
+            AggiungiLog("═══════════════════════════════════════════");
+            AggiungiLog($" COSTO TOTALE DI TRASPORTO: {costoTotale}");
+            AggiungiLog("═══════════════════════════════════════════");
 
             mainGrid.Items.Refresh();
 
