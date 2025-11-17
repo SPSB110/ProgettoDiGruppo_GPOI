@@ -5,8 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ProgettoDiGruppo_GPOI
 {
@@ -160,18 +160,25 @@ namespace ProgettoDiGruppo_GPOI
             btnAutofill.IsEnabled = true;
         }
 
-        private void rowTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void rowTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (Regex.IsMatch(rowTextBox.Text, @"[^0-9]"))
+            {
+                rowTextBox.Text = Regex.Replace(rowTextBox.Text, @"[^0-9]", "");
+            }
         }
 
-        private void colTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void colTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (Regex.IsMatch(colTextBox.Text, @"[^0-9]"))
+            {
+                colTextBox.Text = Regex.Replace(colTextBox.Text, @"[^0-9]", "");
+            }
         }
 
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+
         }
 
         private void btnNordOvest_Click(object sender, RoutedEventArgs e)
