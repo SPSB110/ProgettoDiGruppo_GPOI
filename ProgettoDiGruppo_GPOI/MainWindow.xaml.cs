@@ -4,9 +4,7 @@ using System.Dynamic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using System.Windows.Media.Imaging;
 using System.Text;
 
@@ -14,12 +12,6 @@ namespace ProgettoDiGruppo_GPOI
 {
     public partial class MainWindow : Window
     {
-        public static List<Matrix> Tabelle;
-        public static List<float> Produzione = new List<float>();
-        public static List<float> Destinazioni = new List<float>();
-        public static List<float> Totali = new List<float>();
-        public static int nCol = 4;
-        public static int nRow = 3;
         private int[,] costiTrasporto;
         private int[] offerte;
         private int[] domande;
@@ -39,8 +31,8 @@ namespace ProgettoDiGruppo_GPOI
                 this.FontSize = 14;
                 this.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
-                this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight);
-                this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth);
+                this.Height = (SystemParameters.PrimaryScreenHeight);
+                this.Width = (SystemParameters.PrimaryScreenWidth);
 
                 float topGridHeight = 0.07f;
                 this.TopGrid.Height = this.Height * topGridHeight;
@@ -80,33 +72,7 @@ namespace ProgettoDiGruppo_GPOI
                 return;
             }
 
-            // 🥚 EASTER EGG: 67 righe e 41 colonne
-            /*
-            if (nRighe == 67 && nColonne == 41)
-            {
-                MostraEasterEgg();
-                return;
-            }*/
-
             CreaTabella(nRighe, nColonne);
-        }
-
-        private void MostraEasterEgg()
-        {
-            // Nascondi la DataGrid
-            mainGrid.Visibility = Visibility.Collapsed;
-
-            // Mostra l'immagine
-            // Carica l'immagine dal percorso assoluto
-            easterEggImage.Source = new BitmapImage(new Uri(@"C:\Users\vassalli.21096\Desktop\Compiti GPO\ProgettoDiGruppo_GPOI-master\ProgettoDiGruppo_GPOI\bin\Debug\ps1.jpg"));
-
-            easterEggImage.Visibility = Visibility.Visible;
-
-            // Mostra un messaggio
-            MessageBox.Show("🎉 Hai trovato l'Easter Egg!\n67 righe e 41 colonne... numeri speciali!",
-                            "Segreto Svelato",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Information);
         }
 
         private void CreaTabella(int nRighe, int nColonne)
@@ -249,7 +215,15 @@ namespace ProgettoDiGruppo_GPOI
 
         private void btnAutofill_Click(object sender, RoutedEventArgs e)
         {
+            variabiliReset();
             RiempiTabellaAutomaticamente();
+        }
+
+        private void variabiliReset()
+        {
+            costiTrasporto = new int[nRigheCorrente, nColonneCorrente];
+            offerte = new int[nRigheCorrente];
+            domande = new int[nColonneCorrente];
         }
 
         private void RiempiTabellaAutomaticamente()
