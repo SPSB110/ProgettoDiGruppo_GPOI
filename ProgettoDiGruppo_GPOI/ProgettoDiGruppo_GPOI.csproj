@@ -49,6 +49,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+	  <Resource Include="ico.ico" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
