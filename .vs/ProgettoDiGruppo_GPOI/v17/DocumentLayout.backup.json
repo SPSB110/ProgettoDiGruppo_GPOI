@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\",
+  "WorkspaceRootPath": "C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|c:\\users\\agliati.21076\\documents\\visual studio 2022\\projects\\progettodigruppo_gpoi\\progettodigruppo_gpoi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|solutionrelative:progettodigruppo_gpoi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\progettodigruppo_gpoi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|solutionrelative:progettodigruppo_gpoi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\progettodigruppo_gpoi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|solutionrelative:progettodigruppo_gpoi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|c:\\users\\herob\\documents\\visual studio 2022\\projects\\progettogpoi\\progettodigruppo_gpoi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A9D721-79DF-41B8-B5D2-EFC72E18468F}|ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI.csproj|solutionrelative:progettodigruppo_gpoi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,41 +18,32 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "ProgettoDiGruppo_GPOI\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml",
-              "RelativeToolTip": "ProgettoDiGruppo_GPOI\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-17T08:40:17.021Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ProgettoDiGruppo_GPOI\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml",
+              "RelativeToolTip": "ProgettoDiGruppo_GPOI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T08:40:17.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\agliati.21076\\Documents\\Visual Studio 2022\\Projects\\ProgettoDiGruppo_GPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\herob\\Documents\\Visual Studio 2022\\projects\\ProgettoGPOI\\ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ProgettoDiGruppo_GPOI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4CAAAAAAAAAAAmwDwCAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-29T07:53:42.145Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 132,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

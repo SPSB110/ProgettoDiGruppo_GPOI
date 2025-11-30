@@ -8,18 +8,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#FF676767" >
     <Grid>
-        <Grid x:Name="TopGrid" Height="60" VerticalAlignment="Top" Background="#FF303030">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="TopGrid" Height="60" VerticalAlignment="Top" Background="#FF303030" Grid.ColumnSpan="2">
             <!-- ======================== top grid ======================== -->
             <Grid VerticalAlignment="Center">
                 <!-- ======================== Tab Creating Section ======================== -->
                 <Grid Margin="10,0,0,0">
-                    <Button x:Name="btnHome" Content="Crea Tabella" Width="100" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btnHome_Click"/>
+                    <Button x:Name="btnHome" Content="Crea Tabella" Width="100" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnHome_Click"/>
                 </Grid>
                 <Grid Margin="120,0,0,0" VerticalAlignment="Center">
-                    <TextBox x:Name="rowTextBox" Width="150" Height="30"  HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="rowTextBox_TextChanged" FontSize="20"/>
+                    <TextBox x:Name="rowTextBox" Width="150" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" TextChanged="rowTextBox_TextChanged" FontSize="20" TextAlignment="Center"/>
                 </Grid>
                 <Grid Margin="280,0,0,0" VerticalAlignment="Center">
-                    <TextBox x:Name="colTextBox" Width="150" Height="30"  HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="colTextBox_TextChanged" FontSize="20"/>
+                    <TextBox x:Name="colTextBox" Width="150" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" TextChanged="colTextBox_TextChanged" FontSize="20" TextAlignment="Center"/>
                 </Grid>
                 <Grid Margin="440,0,0,0" VerticalAlignment="Center">
                     <Button x:Name="btnNordOvest" Content="Nord-Ovest" Width="120" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnNordOvest_Click" IsEnabled="False"/>
@@ -39,7 +43,7 @@
         </Grid>
 
         <!-- Pannello di calcolo sulla destra -->
-        <Grid x:Name="rightPanel" Background="#FF1E1E1E" HorizontalAlignment="Right" Width="400" Margin="0,60,0,0">
+        <Grid x:Name="rightPanel" Background="#FF1E1E1E" HorizontalAlignment="Right" Width="400" Margin="0,60,0,0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
@@ -47,7 +51,7 @@
 
             <!-- Titolo del pannello -->
             <Border Grid.Row="0" Background="#FF303030" BorderBrush="#FF505050" BorderThickness="0,0,0,2">
-                <TextBlock Text="Calcoli Dettagliati" 
+                <TextBlock Text="Calcoli" 
                           FontSize="18" 
                           FontWeight="Bold" 
                           Foreground="White" 
@@ -67,7 +71,7 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid VerticalAlignment="Top" Margin="0,0,400,0">
+        <Grid VerticalAlignment="Top" Margin="0,0,400,0" Grid.ColumnSpan="2">
             <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left" CanUserSortColumns="False"/>
             <!-- Easter Egg Image -->
             <Image x:Name="easterEggImage" 
@@ -78,4 +82,5 @@
                    VerticalAlignment="Stretch"/>
         </Grid>
     </Grid>
+
 </Window>

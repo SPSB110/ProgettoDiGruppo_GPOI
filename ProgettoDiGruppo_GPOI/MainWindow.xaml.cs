@@ -37,13 +37,13 @@ namespace ProgettoDiGruppo_GPOI
                 float topGridHeight = 0.07f;
                 this.TopGrid.Height = this.Height * topGridHeight;
                 this.leftGrid.Height = this.Height * (1 - topGridHeight);
-                this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
+                this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height - 1, 0, 0);
                 this.mainGrid.Margin = new Thickness(this.leftGrid.Width, this.TopGrid.Height, 0, 0);
-                this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
+                this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height - 1, 0, 0);
 
-                this.btnHome.Height = this.TopGrid.Height * 0.7;
+                //this.btnHome.Height = this.TopGrid.Height * 0.7;
             };
-            this.SizeChanged += MainWindow_SizeChanged;
+            //this.SizeChanged += MainWindow_SizeChanged;
         }
 
         private void AggiungiLog(string messaggio)
@@ -176,10 +176,10 @@ namespace ProgettoDiGruppo_GPOI
             }
         }
 
-        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        /*private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
-        }
+        }*/
 
         private void btnNordOvest_Click(object sender, RoutedEventArgs e)
         {
@@ -292,10 +292,10 @@ namespace ProgettoDiGruppo_GPOI
 
             mainGrid.Items.Refresh();
 
-            MessageBox.Show($"Tabella riempita automaticamente!\n\nTotale Offerte: {totaleOfferte}\nTotale Domande: {totaleOfferte}\n\nProblema bilanciato e pronto per gli algoritmi! 🚚",
+            /*MessageBox.Show($"Tabella riempita automaticamente!\n\nTotale Offerte: {totaleOfferte}\nTotale Domande: {totaleOfferte}\n\nProblema bilanciato e pronto per gli algoritmi! 🚚",
                            "Riempimento Completato",
                            MessageBoxButton.OK,
-                           MessageBoxImage.Information);
+                           MessageBoxImage.Information);*/
         }
 
         private bool LeggiDatiTabella()
@@ -539,7 +539,7 @@ namespace ProgettoDiGruppo_GPOI
                 {
                     if (allocazioni[r, c] > 0)
                     {
-                        dict[$"D{c + 1}"] = $"{costiTrasporto[r, c]} ({allocazioni[r, c]})";
+                        dict[$"D{c + 1}"] = $"{costiTrasporto[r, c]}";
                         int costoParzialeRiga = costiTrasporto[r, c] * allocazioni[r, c];
                         costoTotale += costoParzialeRiga;
 
@@ -564,10 +564,10 @@ namespace ProgettoDiGruppo_GPOI
 
             mainGrid.Items.Refresh();
 
-            MessageBox.Show($"{metodo} applicato con successo!\n\nCosto totale di trasporto: {costoTotale}",
+            /*MessageBox.Show($"{metodo} applicato con successo!\n\nCosto totale di trasporto: {costoTotale}",
                            "Risultato",
                            MessageBoxButton.OK,
-                           MessageBoxImage.Information);
+                           MessageBoxImage.Information);*/
         }
     }
 }

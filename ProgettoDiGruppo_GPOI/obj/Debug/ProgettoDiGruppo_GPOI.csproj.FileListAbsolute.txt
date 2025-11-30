@@ -29,3 +29,4 @@ C:\Users\herob\Documents\Visual Studio 2022\projects\ProgettoGPOI\ProgettoDiGrup
 C:\Users\herob\Documents\Visual Studio 2022\projects\ProgettoGPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.CoreCompileInputs.cache
 C:\Users\herob\Documents\Visual Studio 2022\projects\ProgettoGPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe
 C:\Users\herob\Documents\Visual Studio 2022\projects\ProgettoGPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.pdb
+C:\Users\herob\Documents\Visual Studio 2022\projects\ProgettoGPOI\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe.config
