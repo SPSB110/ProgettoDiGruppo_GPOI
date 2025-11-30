@@ -16,26 +16,26 @@
             <!-- ======================== top grid ======================== -->
             <Grid VerticalAlignment="Center">
                 <!-- ======================== Tab Creating Section ======================== -->
-                <Grid Margin="10,0,0,0">
-                    <Button x:Name="btnHome" Content="Crea Tabella" Width="100" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnHome_Click"/>
+                <Grid Margin="35,0,0,0">
+                    <Button x:Name="btnCreaTabella" Content="Crea Tabella" Width="100" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnCreaTabella_Click"/>
                 </Grid>
-                <Grid Margin="120,0,0,0" VerticalAlignment="Center">
+                <Grid Margin="145,0,0,0" VerticalAlignment="Center">
                     <TextBox x:Name="rowTextBox" Width="150" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" TextChanged="rowTextBox_TextChanged" FontSize="20" TextAlignment="Center"/>
                 </Grid>
-                <Grid Margin="280,0,0,0" VerticalAlignment="Center">
+                <Grid Margin="305,0,0,0" VerticalAlignment="Center">
                     <TextBox x:Name="colTextBox" Width="150" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" TextChanged="colTextBox_TextChanged" FontSize="20" TextAlignment="Center"/>
                 </Grid>
-                <Grid Margin="440,0,0,0" VerticalAlignment="Center">
+                <Grid Margin="465,0,0,0" VerticalAlignment="Center">
                     <Button x:Name="btnNordOvest" Content="Nord-Ovest" Width="120" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnNordOvest_Click" IsEnabled="False"/>
                 </Grid>
-                <Grid Margin="570,0,0,0" VerticalAlignment="Center">
+                <Grid Margin="595,0,0,0" VerticalAlignment="Center">
                     <Button x:Name="btnMinimiCosti" Content="Minimi Costi" Width="120" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnMinimiCosti_Click" IsEnabled="False"/>
                 </Grid>
-                <Grid Margin="700,0,0,0" VerticalAlignment="Center">
+                <Grid Margin="725,0,0,0" VerticalAlignment="Center">
                     <Button x:Name="btnReset" Content="Reset" Width="80" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnReset_Click" IsEnabled="False"/>
                 </Grid>
-                <Grid Margin="790,0,0,0" VerticalAlignment="Center">
-                    <Button x:Name="btnAutofill" Content="Riempimento Auto" Width="130" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAutofill_Click" IsEnabled="False" Background="#FF4CAF50" Foreground="White"/>
+                <Grid Margin="815,0,0,0" VerticalAlignment="Center">
+                    <Button x:Name="btnAutofill" Content="Riempimento Auto" Width="130" Height="40"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAutofill_Click" IsEnabled="False" Background="#FF4CAF50" Foreground="White" Visibility="Hidden"/>
                 </Grid>
             </Grid>
         </Grid>
@@ -43,14 +43,14 @@
         </Grid>
 
         <!-- Pannello di calcolo sulla destra -->
-        <Grid x:Name="rightPanel" Background="#FF1E1E1E" HorizontalAlignment="Right" Width="400" Margin="0,60,0,0" Grid.Column="1">
+        <Grid x:Name="rightPanel" Background="#FF1E1E1E" HorizontalAlignment="Right" Width="600" Margin="0,60,0,0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!-- Titolo del pannello -->
-            <Border Grid.Row="0" Background="#FF303030" BorderBrush="#FF505050" BorderThickness="0,0,0,2">
+            <Border Grid.Row="0" Background="#FF303030">
                 <TextBlock Text="Calcoli" 
                           FontSize="18" 
                           FontWeight="Bold" 
@@ -71,15 +71,8 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid VerticalAlignment="Top" Margin="0,0,400,0" Grid.ColumnSpan="2">
-            <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left" CanUserSortColumns="False"/>
-            <!-- Easter Egg Image -->
-            <Image x:Name="easterEggImage" 
-                   Visibility="Collapsed" 
-                   Stretch="Uniform"
-                   Margin="35,60,0,0"
-                   HorizontalAlignment="Stretch" 
-                   VerticalAlignment="Stretch"/>
+        <Grid VerticalAlignment="Top" Margin="0,0,600,0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="mainGrid" AutoGenerateColumns="True" HeadersVisibility="All" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="False" GridLinesVisibility="All" VerticalAlignment="Top" HorizontalAlignment="Left" CanUserSortColumns="False" Visibility="Hidden"/>
         </Grid>
     </Grid>
 

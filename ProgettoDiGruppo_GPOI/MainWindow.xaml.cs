@@ -39,7 +39,7 @@ namespace ProgettoDiGruppo_GPOI
                 this.leftGrid.Height = this.Height * (1 - topGridHeight);
                 this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height - 1, 0, 0);
                 this.mainGrid.Margin = new Thickness(this.leftGrid.Width, this.TopGrid.Height, 0, 0);
-                this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height - 1, 0, 0);
+                this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
 
                 //this.btnHome.Height = this.TopGrid.Height * 0.7;
             };
@@ -58,7 +58,7 @@ namespace ProgettoDiGruppo_GPOI
             txtCalcoli.Text = "";
         }
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
+        private void btnCreaTabella_Click(object sender, RoutedEventArgs e)
         {
             if (!int.TryParse(rowTextBox.Text, out int nRighe) || nRighe <= 0)
             {
@@ -77,8 +77,6 @@ namespace ProgettoDiGruppo_GPOI
 
         private void CreaTabella(int nRighe, int nColonne)
         {
-            // Nascondi easter egg e mostra DataGrid
-            easterEggImage.Visibility = Visibility.Collapsed;
             mainGrid.Visibility = Visibility.Visible;
 
             // Pulisci i log
@@ -158,6 +156,7 @@ namespace ProgettoDiGruppo_GPOI
             btnMinimiCosti.IsEnabled = true;
             btnReset.IsEnabled = true;
             btnAutofill.IsEnabled = true;
+            this.btnAutofill.Visibility = Visibility.Visible;
         }
 
         private void rowTextBox_TextChanged(object sender, TextChangedEventArgs e)
