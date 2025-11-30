@@ -249,30 +249,46 @@ namespace ProgettoDiGruppo_GPOI
                 }
             }
 
-            // Genera offerte casuali (valori da 50 a 200)
+            // Calcola il range necessario per le offerte in base al numero di domande
+            int domandaMinimaPerColonna = 50;
+            int totaleMinimoDomande = nColonneCorrente * domandaMinimaPerColonna;
+
+            // Calcola il minimo necessario per offerta per garantire il bilanciamento
+            int minOffertaCalcolato = (int)Math.Ceiling((double)totaleMinimoDomande / nRigheCorrente);
+
+            // Usa il massimo tra 50 e il minimo calcolato per garantire bilanciamento
+            int minOfferta = Math.Max(50, minOffertaCalcolato);
+            int maxOfferta = Math.Max(200, minOfferta + 150);
+
+            // Genera offerte casuali con range adattato
             int[] offerteTemp = new int[nRigheCorrente];
+            int totaleOfferte = 0;
             for (int r = 0; r < nRigheCorrente; r++)
             {
-                offerteTemp[r] = random.Next(50, 201);
+                offerteTemp[r] = random.Next(minOfferta, maxOfferta + 1);
+                totaleOfferte += offerteTemp[r];
             }
 
-            // Genera domande casuali che bilancino le offerte
-            int totaleOfferte = 0;
-            foreach (int off in offerteTemp)
-                totaleOfferte += off;
-
+            // NUOVO APPROCCIO: distribuisci le domande in modo piÃ¹ equilibrato
             int[] demandeTemp = new int[nColonneCorrente];
-            int rimanente = totaleOfferte;
 
-            // Distribuisci le domande in modo casuale ma bilanciato
-            for (int c = 0; c < nColonneCorrente - 1; c++)
+            // Inizializza tutte le domande al minimo
+            for (int c = 0; c < nColonneCorrente; c++)
             {
-                int max = rimanente - (nColonneCorrente - c - 1) * 50; // Assicura che rimanga abbastanza per le altre colonne
-                int min = Math.Max(50, rimanente - (nColonneCorrente - c - 1) * 200);
-                demandeTemp[c] = random.Next(Math.Min(min, max), Math.Min(max + 1, rimanente));
-                rimanente -= demandeTemp[c];
+                demandeTemp[c] = domandaMinimaPerColonna;
             }
-            demandeTemp[nColonneCorrente - 1] = rimanente; // L'ultima prende tutto il resto per bilanciare
+
+            // Calcola quanto "extra" abbiamo da distribuire
+            int extra = totaleOfferte - (nColonneCorrente * domandaMinimaPerColonna);
+
+            // Distribuisci l'extra in modo casuale tra le colonne
+            while (extra > 0)
+            {
+                int colonnaScelta = random.Next(0, nColonneCorrente);
+                int quantitaDaAggiungere = random.Next(1, Math.Min(extra + 1, 51)); // Aggiungi max 50 alla volta
+                demandeTemp[colonnaScelta] += quantitaDaAggiungere;
+                extra -= quantitaDaAggiungere;
+            }
 
             // Inserisci offerte nella tabella
             for (int r = 0; r < nRigheCorrente; r++)
@@ -290,11 +306,6 @@ namespace ProgettoDiGruppo_GPOI
             dictDomande["Offerta"] = ""; // Cella vuota nell'angolo
 
             mainGrid.Items.Refresh();
-
-            /*MessageBox.Show($"Tabella riempita automaticamente!\n\nTotale Offerte: {totaleOfferte}\nTotale Domande: {totaleOfferte}\n\nProblema bilanciato e pronto per gli algoritmi! 🚚",
-                           "Riempimento Completato",
-                           MessageBoxButton.OK,
-                           MessageBoxImage.Information);*/
         }
 
         private bool LeggiDatiTabella()
