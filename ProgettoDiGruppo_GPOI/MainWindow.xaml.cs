@@ -40,17 +40,8 @@ namespace ProgettoDiGruppo_GPOI
                 this.leftGrid.Margin = new Thickness(0, this.TopGrid.Height - 1, 0, 0);
                 this.mainGrid.Margin = new Thickness(this.leftGrid.Width, this.TopGrid.Height, 0, 0);
                 this.rightPanel.Margin = new Thickness(0, this.TopGrid.Height, 0, 0);
-
-                //this.btnHome.Height = this.TopGrid.Height * 0.7;
             };
-            //this.SizeChanged += MainWindow_SizeChanged;
         }
-
-        /*private void AggiungiLog(string messaggio)
-        {
-            logCalcoli.AppendLine(messaggio);
-            txtCalcoli.Text = logCalcoli.ToString();
-        }*/
 
         private void PulisciLog()
         {
@@ -79,8 +70,6 @@ namespace ProgettoDiGruppo_GPOI
 
         private void CreaTabella(int nRighe, int nColonne)
         {
-            mainGrid.Visibility = Visibility.Visible;
-
             // Pulisci i log
             PulisciLog();
 
@@ -159,6 +148,7 @@ namespace ProgettoDiGruppo_GPOI
             btnReset.IsEnabled = true;
             btnAutofill.IsEnabled = true;
             this.btnAutofill.Visibility = Visibility.Visible;
+            mainGrid.Visibility = Visibility.Visible;
         }
 
         private void rowTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -176,11 +166,6 @@ namespace ProgettoDiGruppo_GPOI
                 colTextBox.Text = Regex.Replace(colTextBox.Text, @"[^0-9]", "");
             }
         }
-
-        /*private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-
-        }*/
 
         private void btnNordOvest_Click(object sender, RoutedEventArgs e)
         {
@@ -576,12 +561,10 @@ namespace ProgettoDiGruppo_GPOI
 
             txtCalcoli.Text = logCalcoli.ToString(); // mette tutto lo stringbuilder nella textbox
 
-            mainGrid.Items.Refresh();
+            var ultimaRiga = (IDictionary<string, object>)items[nRigheCorrente]; 
+            ultimaRiga["Offerta"] = costoTotale;
 
-            /*MessageBox.Show($"{metodo} applicato con successo!\n\nCosto totale di trasporto: {costoTotale}",
-                           "Risultato",
-                           MessageBoxButton.OK,
-                           MessageBoxImage.Information);*/
+            mainGrid.Items.Refresh();
         }
     }
 }
