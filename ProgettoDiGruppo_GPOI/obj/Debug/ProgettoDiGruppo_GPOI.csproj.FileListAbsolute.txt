@@ -62,3 +62,18 @@ C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoGPO1\Proget
 C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoGPO1\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.CoreCompileInputs.cache
 C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoGPO1\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe
 C:\Users\agliati.21076\Documents\Visual Studio 2022\Projects\ProgettoGPO1\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.pdb
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.exe.config
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.exe
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\bin\Debug\ProgettoDiGruppo_GPOI.pdb
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\MainWindow.g.cs
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\App.g.cs
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI_MarkupCompile.cache
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI_MarkupCompile.lref
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\MainWindow.baml
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.g.resources
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.Properties.Resources.resources
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.GenerateResource.cache
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.exe
+C:\Users\User\Documents\Progetti VSC 2022\gpoi progetto\ProgettoDiGruppo_GPOI\obj\Debug\ProgettoDiGruppo_GPOI.pdb
