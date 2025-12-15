@@ -2,10 +2,11 @@
 
 Applicazione WPF (C# 7.3, .NET Framework 4.7.2) per risolvere problemi di trasporto con i metodi `Nord-Ovest` e `Minimi Costi`.
 
-## Requisiti
-- Windows
-- Visual Studio 2022
-- .NET Framework 4.7.2
+## Partecipanti
+- Agliati Federico         [@Uccetta110](https://github.com/Uccetta110)
+- Fusaglia Alfredo         [@fusaglia](https://github.com/fusaglia)
+- Pavesi Nicodemo          [@Pictureboard](https://github.com/Pictureboard)
+- Vassalli Isaia Marco     [@isa-vass](https://github.com/isa-vass)
 
 ## Avvio rapido
 1. Clona il repository.
